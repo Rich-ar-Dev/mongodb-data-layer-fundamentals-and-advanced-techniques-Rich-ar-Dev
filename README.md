@@ -1,59 +1,125 @@
-# MongoDB Fundamentals - Week 1
 
-## Setup Instructions
 
-Before you begin this assignment, please make sure you have the following installed:
+## 🚀 **STEP 1: Add Screenshots**
 
-1. **MongoDB Community Edition** - [Installation Guide](https://www.mongodb.com/docs/manual/administration/install-community/)
-2. **MongoDB Shell (mongosh)** - This is included with MongoDB Community Edition
-3. **Node.js** - [Download here](https://nodejs.org/)
-
-### Node.js Package Setup
-
-Once you have Node.js installed, run the following commands in your assignment directory:
+Copy your screenshot files to the current directory:
 
 ```bash
-# Initialize a package.json file
-npm init -y
+# Copy all screenshot files (adjust the path as needed)
+cp ~/path/to/your/screenshots/*.png .
+```
 
-# Install the MongoDB Node.js driver
+## 🚀 **STEP 2: Update README.md**
+
+Let's update the README.md to include your actual work:
+
+```bash
+cat > README.md << 'EOF'
+# MongoDB Bookstore Assignment
+
+This project demonstrates MongoDB fundamentals including CRUD operations, aggregation pipelines, and indexing.
+
+## 📁 Project Structure
+```
+mongodb-data-layer-fundamentals-and-advanced-techniques-Rich-ar-Dev/
+├── insert_books.js          # Script to populate the database
+├── queries.js               # All MongoDB queries for the assignment
+├── README.md                # This file
+└── screenshots/             # Screenshots of database and queries
+    ├── database-connection.png
+    ├── sample-data.png
+    └── query-results.png
+```
+
+## 🚀 Setup Instructions
+
+### Prerequisites
+- Node.js installed
+- MongoDB Atlas account
+- MongoDB Compass (optional, for GUI)
+
+### 1. Database Setup
+- MongoDB Atlas cluster: `cluster0.cu946q7.mongodb.net`
+- Database: `plp_bookstore`
+- Collection: `books`
+
+### 2. Install Dependencies
+```bash
 npm install mongodb
 ```
 
-## Assignment Overview
+### 3. Populate the Database
+```bash
+node insert_books.js
+```
+This will insert 12 sample books into your `books` collection.
 
-This week focuses on MongoDB fundamentals including:
-- Creating and connecting to MongoDB databases
-- CRUD operations (Create, Read, Update, Delete)
-- MongoDB queries and filters
-- Aggregation pipelines
-- Indexing for performance
+### 4. Run Queries
+Connect to MongoDB using `mongosh`:
+```bash
+mongosh "mongodb+srv://username:password@cluster0.cu946q7.mongodb.net/"
+```
 
-## Submission
+Then run the queries:
+```javascript
+use plp_bookstore
+load("queries.js")
+```
 
-Complete all the exercises in this assignment and push your code to GitHub using the provided GitHub Classroom link.
+## 📊 Assignment Tasks Completed
 
-## Getting Started
+### ✅ Task 1: MongoDB Setup
+- MongoDB Atlas cluster setup
+- Database: `plp_bookstore`
+- Collection: `books`
+- 12 books inserted using provided script
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install MongoDB locally or set up a MongoDB Atlas account
-4. Run the provided `insert_books.js` script to populate your database
-5. Complete the tasks in the assignment document
+### ✅ Task 2: Basic CRUD Operations
+- Find books by genre, year, author
+- Update book prices
+- Delete books by title
 
-## Files Included
+### ✅ Task 3: Advanced Queries
+- Complex filters with multiple conditions
+- Field projection
+- Sorting (ascending/descending)
+- Pagination with limit and skip
 
-- `Week1-Assignment.md`: Detailed assignment instructions
-- `insert_books.js`: Script to populate your MongoDB database with sample book data
+### ✅ Task 4: Aggregation Pipeline
+- Average price by genre
+- Author with most books
+- Books count by publication decade
 
-## Requirements
+### ✅ Task 5: Indexing
+- Single index on title field
+- Compound index on author and published_year
+- Performance analysis with explain()
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- MongoDB Shell (mongosh) or MongoDB Compass
+## 📸 Screenshots Included
+- MongoDB Compass showing database connection
+- Books collection with sample data
+- Query results from various operations
 
-## Resources
+## 🔗 Connection Details
+- **Database**: MongoDB Atlas
+- **Cluster**: cluster0.cu946q7.mongodb.net
+- **Database Name**: plp_bookstore
+- **Collection**: books
+EOF
+```
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+## 🚀 **STEP 3: Add Everything and Push**
+
+```bash
+# Add all files including screenshots
+git add .
+
+# Check what will be committed
+git status
+
+# Commit with descriptive message
+git commit -m "Complete MongoDB assignment: scripts, queries, screenshots, and documentation"
+
+# Push to GitHub
+git push origin main
+```
